@@ -14,7 +14,7 @@ public class TpTests {
 
     @BeforeEach
     public void setUpStreams() {
-        
+
         System.setOut(new PrintStream(outContent));
     }
 
@@ -25,7 +25,7 @@ public class TpTests {
     public void testBuilderConstruction() {
         // On vérifie que le Builder permet de construire un objet complet
         CoursBuilder builder = new CoursBuilder();
-        
+
         Cours cours = builder
                 .setMatiere("Génie Logiciel")
                 .setEnseignant("Mr Oussama")
@@ -42,11 +42,11 @@ public class TpTests {
     @Test
     public void testDecoratorStructure() {
         // On crée un cours de base
-        ICours coursDeBase = new Cours("Assurance qualité logiciel", "Mr Omar", 
-                                        "D23", "Lundi", "8h00", false, 
-                                        "2A", true);
-        
-        
+        ICours coursDeBase = new Cours("Assurance qualité logiciel", "Mr Omar",
+                "D23", "Lundi", "8h00", false,
+                "2A", true);
+
+
         ICours coursDecore = new CoursEnLigne(coursDeBase);
 
         String description = coursDecore.getDescription();
@@ -54,8 +54,8 @@ public class TpTests {
         // Vérifications
         assertNotNull(description, "La description ne doit pas être null");
         assertTrue(description.contains("Assurance qualité logiciel"), "La description originale doit être préservée");
-        assertTrue(description.contains("En ligne"), 
-                   "Le décorateur doit ajouter la mention 'En ligne'");
+        assertTrue(description.contains("En ligne"),
+                "Le décorateur doit ajouter la mention 'En ligne'");
     }
 
     // ========================================================================
@@ -68,13 +68,13 @@ public class TpTests {
 
         // 2. Création d'un observateur fictif pour le test (Mock)
         TestObserver observateurTest = new TestObserver();
-        
+
         // ATTENTION : Le code ci-dessous ne compilera que si Gestionnaire implémente Subject
         // ou possède la méthode attach(). L'étudiant doit le faire.
         if (gestionnaire instanceof Subject) {
             ((Subject) gestionnaire).attach(observateurTest);
         } else {
-             fail("La classe GestionnaireEmploiDuTemps doit implémenter l'interface Subject !");
+            fail("La classe GestionnaireEmploiDuTemps doit implémenter l'interface Subject !");
         }
 
         // 3. Action qui déclenche la notification
