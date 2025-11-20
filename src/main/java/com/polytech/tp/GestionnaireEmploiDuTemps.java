@@ -35,4 +35,9 @@ public class GestionnaireEmploiDuTemps implements Subject {
         System.out.println("Cours modifié : " + message);
         notifyObservers("Cours modifié : " + message);
     }
+
+    public void setChangement(String message) {
+        System.out.println("Changement dans l'emploi du temps : " + message);
+        notifyObservers(message);
+    }
 }
