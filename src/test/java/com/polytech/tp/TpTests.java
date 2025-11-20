@@ -43,8 +43,8 @@ public class TpTests {
     public void testDecoratorStructure() {
         // On crée un cours de base
         ICours coursDeBase = new Cours("Assurance qualité logiciel", "Mr Omar",
-                "D23", "Lundi", "8h00", false,
-                "2A", true);
+                                        "D23", "Lundi", "8h00", false,
+                                        "2A", true);
 
 
         ICours coursDecore = new CoursEnLigne(coursDeBase);
@@ -55,7 +55,7 @@ public class TpTests {
         assertNotNull(description, "La description ne doit pas être null");
         assertTrue(description.contains("Assurance qualité logiciel"), "La description originale doit être préservée");
         assertTrue(description.contains("En ligne"),
-                "Le décorateur doit ajouter la mention 'En ligne'");
+                   "Le décorateur doit ajouter la mention 'En ligne'");
     }
 
     // ========================================================================
@@ -74,7 +74,7 @@ public class TpTests {
         if (gestionnaire instanceof Subject) {
             ((Subject) gestionnaire).attach(observateurTest);
         } else {
-            fail("La classe GestionnaireEmploiDuTemps doit implémenter l'interface Subject !");
+             fail("La classe GestionnaireEmploiDuTemps doit implémenter l'interface Subject !");
         }
 
         // 3. Action qui déclenche la notification
